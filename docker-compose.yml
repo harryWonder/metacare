@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  metacare_database:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: "on-failure"
+    container_name: metacare_database
+    environment:
+      MYSQL_USER: metacare
+      MYSQL_DATABASE: metacare_database
+      MYSQL_PASSWORD: metacare_db_password
+      MYSQL_ROOT_PASSWORD: metacare_db_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - metacare_mysql:/etc/mysql/conf.d
+    healthcheck:
+      test: ["CMD", 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-p$$MYSQL_ROOT_PASSWORD']
+      # test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+  # metacare_microservice:
+  #   build: .
+  #   container_name: metacare_microservice
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     metacare_database:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ".:/usr/src/metacare"
+  #   links:
+  #     - "metacare_database"
+  #   env_file:
+  #     - ".env"
+  #   restart: always
+volumes:
+  metacare_mysql: null

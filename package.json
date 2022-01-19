@@ -1,0 +1,54 @@
+{
+  "name": "metacare_microservice",
+  "version": "1.0.0",
+  "description": "A custom microservice framework used to power the Metacare Web/Mobile App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "npx sequelize migration:generate --name ",
+    "seeder": "npx sequelize seed:generate --name ",
+    "db:migrate": "npx sequelize db:migrate",
+    "db:seed": "npx sequelize db:seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harryWonder/metacare.git"
+  },
+  "keywords": [
+    "API",
+    "Microservice",
+    "NodeJs",
+    "Transtura"
+  ],
+  "author": "Ilori Stephen Adejuwon <stephenilori458@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harryWonder/metacare/issues"
+  },
+  "homepage": "https://github.com/harryWonder/metacare#readme",
+  "dependencies": {
+    "aws-sdk": "^2.832.0",
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-rate-limit": "^5.5.1",
+    "filesize": "^8.0.6",
+    "fs-extra": "^10.0.0",
+    "helmet": "^4.6.0",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.1",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.12.0-beta.1",
+    "sequelize-cli": "^6.3.0",
+    "validator": "^13.7.0",
+    "winston": "^3.3.3"
+  }
+}
