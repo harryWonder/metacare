@@ -4,6 +4,7 @@
   "description": "A custom microservice framework used to power the Metacare Web/Mobile App",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "npx sequelize migration:generate --name ",
     "seeder": "npx sequelize seed:generate --name ",
