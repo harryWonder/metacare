@@ -55,7 +55,6 @@ class Kernel {
         let sqlDatabase = null;
 
         if (DatabaseConfig.connections.MySql.url) {
-          console.log(DatabaseConfig.connections.MySql.url);
           const Sequelize = require("sequelize");
           sqlDatabase = new Sequelize(DatabaseConfig.connections.MySql.url, 
             {
