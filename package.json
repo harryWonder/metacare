@@ -11,6 +11,10 @@
     "db:migrate": "npx sequelize db:migrate",
     "db:seed": "npx sequelize db:seed"
   },
+  "engines": {
+    "node": "16.11.1",
+    "npm": "8.1.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harryWonder/metacare.git"
