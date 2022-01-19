@@ -10,8 +10,8 @@
 const Kernel = require('./bootstrap/Kernel');
 
 /* Run The Application */
-const Transtura = Kernel.application();
+const Metacare = Kernel.application();
 
-Transtura.app.listen(process.env.PORT || Transtura.appPort, () => {
-  console.log(Transtura.appName + ' is running on ' + Transtura.appUrl);
+Metacare.app.listen(process.env.PORT || Metacare.appPort, () => {
+  console.log(Metacare.appName + ' is running on ' + Metacare.appUrl);
 });

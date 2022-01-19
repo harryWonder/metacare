@@ -20,20 +20,28 @@ services:
       # test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       timeout: 20s
       retries: 10
-  # metacare_microservice:
-  #   build: .
-  #   container_name: metacare_microservice
-  #   ports:
-  #     - "8000:8000"
-  #   depends_on:
-  #     metacare_database:
-  #       condition: service_healthy
-  #   volumes:
-  #     - ".:/usr/src/metacare"
-  #   links:
-  #     - "metacare_database"
-  #   env_file:
-  #     - ".env"
-  #   restart: always
+  metacare_microservice:
+    build: "./docker"
+    container_name: metacare_microservice
+    ports:
+      - "8000:8000"
+    depends_on:
+      metacare_database:
+        condition: service_healthy
+    volumes:
+      - ".:/usr/src/metacare"
+    links:
+      - "metacare_database"
+    env_file:
+      - ".env"
+    restart: always
+  metacare_proxy:
+    build: 
+      context: 'docker'
+      dockerfile: nginx.Dockerfile
+    depends_on:
+      - metacare_microservice
+    ports:
+      - "8080:8080"
 volumes:
   metacare_mysql: null
